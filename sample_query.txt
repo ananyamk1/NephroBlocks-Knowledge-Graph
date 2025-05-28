@@ -1,0 +1,7 @@
+# Sample Cypher Query
+# Retrieve trials on Magnesium Carbonate Systemic Drug for Renal Failure
+MATCH (p:Paper)-[:DRUG_LABEL]->(dr:Drugs),
+      (p:Paper)-[:IN_CATEGORY]->(di:Disease),
+      (p:Paper)-[:TREATMENT_LABEL]->(t:Treatments)
+WHERE di.category="renal failure" AND dr.name="magnesium carbonate systemic"
+RETURN p.title, p.authors, p.abstract
